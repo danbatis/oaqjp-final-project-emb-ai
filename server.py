@@ -17,13 +17,17 @@ def emotionDetector():
     joyscore = respdd['joy']
     sadnessscore = respdd['sadness']
     domemotion = respdd['dominant_emotion']
-    response = f"For the statement: '{textToanalyze}' the system response is "
-    response += f"'anger':{angerscore}, "
-    response += f"'disgust':{disgustscore}, "
-    response += f"'fear':{fearscore}, "
-    response += f"'joy':{joyscore}, "
-    response += f"'sadness':{sadnessscore}. "
-    response += f"The dominant emotion is {domemotion}."
+    response = ""
+    if domemotion != None:
+        response = f"For the statement: '{textToanalyze}' the system response is "
+        response += f"'anger':{angerscore}, "
+        response += f"'disgust':{disgustscore}, "
+        response += f"'fear':{fearscore}, "
+        response += f"'joy':{joyscore}, "
+        response += f"'sadness':{sadnessscore}. "
+        response += f"The dominant emotion is {domemotion}."
+    else:
+        response = "Invalid text! Please try again!"
     return response
 
 if __name__ == "__main__":
